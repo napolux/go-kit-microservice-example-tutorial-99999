@@ -32,10 +32,6 @@ type statusResponse struct {
 // In the second part we will write "decoders" for our incoming requests
 func decodeGetRequest(ctx context.Context, r *http.Request) (interface{}, error) {
 	var req getRequest
-	err := json.NewDecoder(r.Body).Decode(&req)
-	if err != nil {
-		return nil, err
-	}
 	return req, nil
 }
 
@@ -50,10 +46,6 @@ func decodeValidateRequest(ctx context.Context, r *http.Request) (interface{}, e
 
 func decodeStatusRequest(ctx context.Context, r *http.Request) (interface{}, error) {
 	var req statusRequest
-	err := json.NewDecoder(r.Body).Decode(&req)
-	if err != nil {
-		return nil, err
-	}
 	return req, nil
 }
 
