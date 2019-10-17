@@ -50,41 +50,41 @@ func MakeValidateEndpoint(srv Service) endpoint.Endpoint {
 	}
 }
 
-// Get endpoint mapping
-func (e Endpoints) Get(ctx context.Context) (string, error) {
-	req := getRequest{}
-	resp, err := e.GetEndpoint(ctx, req)
-	if err != nil {
-		return "", err
-	}
-	getResp := resp.(getResponse)
-	if getResp.Err != "" {
-		return "", errors.New(getResp.Err)
-	}
-	return getResp.Date, nil
-}
+// // Get endpoint mapping
+// func (e Endpoints) Get(ctx context.Context) (string, error) {
+// 	req := getRequest{}
+// 	resp, err := e.GetEndpoint(ctx, req)
+// 	if err != nil {
+// 		return "", err
+// 	}
+// 	getResp := resp.(getResponse)
+// 	if getResp.Err != "" {
+// 		return "", errors.New(getResp.Err)
+// 	}
+// 	return getResp.Date, nil
+// }
 
-// Status endpoint mapping
-func (e Endpoints) Status(ctx context.Context) (string, error) {
-	req := statusRequest{}
-	resp, err := e.StatusEndpoint(ctx, req)
-	if err != nil {
-		return "", err
-	}
-	statusResp := resp.(statusResponse)
-	return statusResp.Status, nil
-}
+// // Status endpoint mapping
+// func (e Endpoints) Status(ctx context.Context) (string, error) {
+// 	req := statusRequest{}
+// 	resp, err := e.StatusEndpoint(ctx, req)
+// 	if err != nil {
+// 		return "", err
+// 	}
+// 	statusResp := resp.(statusResponse)
+// 	return statusResp.Status, nil
+// }
 
-// Validate endpoint mapping
-func (e Endpoints) Validate(ctx context.Context, date string) (bool, error) {
-	req := validateRequest{Date: date}
-	resp, err := e.ValidateEndpoint(ctx, req)
-	if err != nil {
-		return false, err
-	}
-	validateResp := resp.(validateResponse)
-	if validateResp.Err != "" {
-		return false, errors.New(validateResp.Err)
-	}
-	return validateResp.Valid, nil
-}
+// // Validate endpoint mapping
+// func (e Endpoints) Validate(ctx context.Context, date string) (bool, error) {
+// 	req := validateRequest{Date: date}
+// 	resp, err := e.ValidateEndpoint(ctx, req)
+// 	if err != nil {
+// 		return false, err
+// 	}
+// 	validateResp := resp.(validateResponse)
+// 	if validateResp.Err != "" {
+// 		return false, errors.New(validateResp.Err)
+// 	}
+// 	return validateResp.Valid, nil
+// }
